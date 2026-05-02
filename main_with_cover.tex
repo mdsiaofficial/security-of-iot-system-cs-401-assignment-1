@@ -1,0 +1,160 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{setspace}
+
+\geometry{margin=1in}
+
+\title{Security of IoT Systems: Vulnerabilities, Authentication, Trust, and Blockchain Approaches}
+
+\author{
+Md Shoriful Islam Ashiq \\
+University ID: 0272220005101010 \\
+Department of Computer Science \& Engineering \\
+City University, Dhaka, Bangladesh \\
+Email: mdsiaofficial@gmail.com
+}
+
+\begin{document}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{0.5cm}
+\includegraphics[width=3cm]{university-logo.png} \\
+\vspace*{0.5cm}
+{\LARGE\bfseries City University}\par
+\vspace*{0.1cm}
+{\large Khagan, Birulia, Savar, Dhaka}\par
+\vspace{2em}
+{\large\bfseries Faculty of Science and Engineering}\par
+{\large\bfseries Department of Computer Science and Engineering (CSE)}\par
+\vspace{4.0em}
+\fbox{\begin{minipage}{0.28\textwidth}
+\centering
+\vspace{0.1em}
+{\Large\bfseries Assignment}
+\vspace{0.1em}
+\end{minipage}}
+\vspace{3.0em}
+
+% {\Large\bfseries Department of Computer Science \& Engineering}\par
+\vspace{4em}
+
+\begin{minipage}{1\textwidth}
+\raggedright
+\textbf{Course Code :} SE 401\par
+\textbf{Course Title :} System Programming\par
+\textbf{Experiment No:} 1
+\end{minipage}
+
+\vspace{4em}
+
+{\Large\bfseries \textcolor{green!50!black}{Submitted by}}\par
+\vspace{1em}
+{\large\bfseries Md Shoriful Islam}\par
+ID: 0272220005101010\par
+Batch: 60\textsuperscript{th}\par
+Program: B.Sc. in CSE\par
+City University, Bangladesh
+
+\vspace{1.8em}
+
+{\Large\bfseries \textcolor{green!50!black}{Submitted to}}\par
+\vspace{0.3em}
+{\large\bfseries Sharmim Akter}\par
+{\large\bfseries Lecturer}\par
+Department of CSE\par
+City University, Bangladesh
+
+\vfill
+
+\fbox{\begin{minipage}{0.58\textwidth}
+\centering
+\vspace{0.45em}
+\textbf{Submission Date: 02\textsuperscript{th} May, 2026}
+\vspace{0.45em}
+\end{minipage}}
+\end{center}
+\end{titlepage}
+
+\maketitle
+
+\begin{abstract}
+The Internet of Things (IoT) connects sensors, actuators, and smart devices in healthcare, agriculture, industry, and home automation, but its scale and heterogeneity also expand the attack surface. This paper reviews seven provided studies and synthesizes their main findings into a compact survey on IoT security. The literature consistently shows that the most common weaknesses are weak authentication, insecure communication, limited update mechanisms, and resource-constrained hardware. The reviewed articles also show that lightweight authentication, trust-based security for WSN-assisted IoT, and blockchain-based mechanisms can improve confidentiality, integrity, and access control, but each approach introduces trade-offs in overhead, scalability, or deployment complexity. Domain-specific studies, especially in smart healthcare, further demonstrate that IoT security must protect both data privacy and device functionality. The paper concludes that effective IoT defense requires layered, lightweight, and context-aware security rather than a single universal mechanism.
+
+\textbf{Keywords:} Internet of Things, IoT security, authentication, trust management, blockchain, risk analysis.
+\end{abstract}
+
+\section{Introduction}
+The Internet of Things (IoT) refers to a network of uniquely identifiable physical devices that sense, exchange, and process data over the Internet. IoT is now used in smart homes, transportation, industry, agriculture, healthcare, and public safety. Its value comes from continuous data collection and automation, but those same features create a broad attack surface. A secure IoT system must protect confidentiality, integrity, availability, authentication, and privacy while remaining usable on low-power devices.
+
+IoT security is difficult because devices are often small, remote, heterogeneous, and resource constrained. Common weaknesses include default passwords, weak or missing encryption, insecure web interfaces, poor firmware update support, open ports, and limited storage for security tools \cite{dineva}. Attacks such as man-in-the-middle, denial of service, data tampering, and unauthorized access can damage both data and physical processes. In critical settings, such as healthcare or industrial monitoring, failures can have direct safety and financial consequences.
+
+This paper reviews seven provided studies that cover the main directions of IoT security research: foundational architecture and attack surface analysis, authentication protocols, trust-based security, blockchain-based protection, smart healthcare risk analysis, and bibliometric trend mapping \cite{dineva,qadir,yalli,trust,bibliometric,healthcare,tradeoff}. The goal is to organize these studies into a coherent view of what IoT security problems exist, which solutions are most promising, and where the remaining gaps are.
+
+\section{Literature Review}
+The reviewed papers complement each other by covering architecture, protocols, trust, blockchain, domain-specific risk, and research trends. Together, they show that IoT security is not a single-problem field; it is a layered problem that changes with device capability, communication protocol, and deployment context.
+
+\subsection{IoT architecture and attack surface}
+Dineva and Atanasova \cite{dineva} describe IoT security from the system perspective. Their paper separates IoT into edge devices, access gateways, the Internet layer, middleware, and applications. This layered view is useful because every layer exposes different risks. The edge layer is vulnerable to physical tampering and weak device credentials; the gateway and Internet layers are exposed to interception and traffic manipulation; middleware and applications can suffer from access control failures and insecure interfaces. The main contribution of this work is that it links architecture to attack vectors and shows why protection must be designed across the full stack rather than added only at the application layer.
+
+\subsection{Authentication and lightweight protocols}
+Yalli et al. \cite{yalli} provide a systematic review focused on authentication protocols and enabling technologies. Their study shows that IoT authentication research has moved toward lightweight methods that can run on constrained devices without exhausting memory, energy, or processing power. The paper also highlights that a good authentication scheme must be judged by more than cryptographic strength: scalability, interoperability, and protocol compatibility matter just as much. The main gap identified is that many schemes are secure in theory but are too expensive for real IoT deployments.
+
+\subsection{Trust-based security in WSN-assisted IoT}
+Chaboki et al. \cite{trust} survey trust-based security management in wireless sensor network-assisted IoT systems. Their review groups the literature into clustering, routing, combined clustering-routing, and threat-detection schemes. Trust-based methods are attractive because they often use less computation than heavy cryptography and can help isolate suspicious nodes before they disrupt the network. The paper also shows that trust models are often combined with fuzzy logic, swarm intelligence, metaheuristics, and machine learning to improve malicious-node detection and energy efficiency. The key limitation is that trust scores can be sensitive to noisy observations and changing network conditions.
+
+\subsection{Blockchain-based IoT protection}
+Qadir and Hashmy \cite{qadir} review blockchain-based security solutions for IoT vulnerabilities. Their work reports that weak authentication, insufficient encryption, insecure communication protocols, and poor update practices are common across the literature. Blockchain is presented as a way to support decentralized authentication, tamper-resistant storage, and smart-contract-based access control. The main advantage is that blockchain reduces dependence on a single trusted authority, which can improve integrity and auditability. However, the paper also notes practical barriers such as scalability, computational overhead, and difficulty in real-world integration.
+
+Abdullah et al. \cite{tradeoff} extend this discussion by focusing on the trade-off among security, privacy, and scalability in blockchain-enabled IoT systems. Their main finding is that no single blockchain configuration maximizes all three properties at once. Techniques such as sharding, layer-2 protocols, zero-knowledge proofs, and hybrid architectures can help, but each solution shifts the cost somewhere else. This makes blockchain promising, but not a universal answer for resource-constrained IoT.
+
+\subsection{Healthcare and monitoring applications}
+Limkar et al. \cite{healthcare} show how IoT security problems become more serious in smart healthcare systems. Medical wearables, implants, and remote-monitoring devices face threats such as data breaches, man-in-the-middle attacks, denial of service, weak encryption, and firmware weaknesses. Their review also emphasizes regulatory concerns because healthcare data is protected by privacy rules and patient-safety requirements. This paper is important because it shows that IoT security must be evaluated in application context, not only as a generic technical issue.
+
+\subsection{Research trends}
+Judijanto \cite{bibliometric} use bibliometric analysis to map how IoT security and monitoring research has evolved. Their results show that IoT is the central research hub and is closely linked with machine learning, cybersecurity, authentication, blockchain, and monitoring architectures. The trend has moved from basic intrusion detection and network security toward privacy-aware, intelligent, and domain-specific solutions in healthcare and agriculture. This supports the conclusion that future IoT security research will likely be more adaptive, data-driven, and application specific.
+
+Across these studies, one pattern is consistent: traditional security controls are necessary but not sufficient. Strong IoT security usually requires a combination of lightweight authentication, trustworthy routing or clustering, secure update mechanisms, and sometimes blockchain or other distributed trust models. Even then, deployment details and resource limits decide whether the solution is practical.
+
+\section{Methodology Analysis}
+This paper uses a structured literature synthesis based on the seven provided references. The analysis is qualitative, but it follows a clear review procedure.
+
+First, the papers were selected because they all relate directly to IoT security and together cover the main subtopics required for the assignment: system architecture, vulnerabilities, authentication, trust management, blockchain solutions, healthcare risk, and research trends. Second, each paper was analyzed using the same criteria: target domain, security problem, method or review approach, main findings, and limitations. Third, the results were grouped into themes so that the comparison would be based on security function rather than on publication order.
+
+The synthesis focused on five comparison dimensions:
+\begin{itemize}
+\item the attack surface or threat model;
+\item the security property improved, such as confidentiality, integrity, availability, or trust;
+\item the resource cost of the proposed approach;
+\item the suitability for constrained IoT devices;
+\item the practical limitations of the approach.
+\end{itemize}
+
+This approach is appropriate for a review assignment because it does not invent new experimental data. Instead, it compares existing findings and identifies patterns across the literature. The main analytical result is that IoT security solutions tend to fall into three broad groups: lightweight authentication, trust-based defense, and blockchain-based protection. Each group improves security in a different way, but each also introduces trade-offs in energy use, scalability, or implementation complexity. The best overall strategy is therefore a layered design that combines mechanisms according to the needs of the specific IoT deployment.
+
+\section{Conclusion}
+IoT security is a multi-layer problem shaped by device constraints, communication protocols, and deployment context. The reviewed studies show that the most persistent threats are weak authentication, insecure communication, poor update practices, and exposure of sensitive data. They also show that no single defense mechanism is sufficient.
+
+Lightweight authentication is essential for constrained devices. Trust-based methods are useful in WSN-assisted IoT because they can improve routing and malicious-node detection with relatively low overhead. Blockchain strengthens integrity and decentralized trust, but it can hurt scalability and efficiency if it is not carefully designed. In healthcare and other critical applications, these trade-offs become even more important because security failures can affect both data and physical safety.
+
+The main lesson from the reviewed literature is that IoT security should be layered, adaptive, and context aware. Future work should focus on practical deployment, interoperable standards, secure update mechanisms, and hybrid frameworks that combine authentication, trust, and blockchain where appropriate.
+
+\begin{thebibliography}{99}
+\bibitem{dineva} M. K. Dineva and T. Atanasova, ``Security in IoT Systems,'' 2019.
+\bibitem{qadir} S. Qadir and R. Hashmy, ``A Systematic Literature Review on Security Vulnerabilities in IoT-Enabled Systems and Blockchain-Based Security Solutions,'' in \emph{2025 IEEE 4th World Conference on Applied Intelligence and Computing (AIC)}, 2025.
+\bibitem{yalli} J. S. Yalli \emph{et al.}, ``A Systematic Review for Evaluating IoT Security: A Focus on Authentication, Protocols and Enabling Technologies,'' \emph{IEEE Internet of Things Journal}, vol. 12, no. 12, 2025.
+\bibitem{trust} B. Chaboki, M. K. Rafsanjani, and F. Fanian, ``Trust-Based Security Management in WSN-Assisted IoT Systems: A Comprehensive Review,'' \emph{International Journal of Software Science and Computational Intelligence}, vol. 17, no. 1, 2025.
+\bibitem{bibliometric} L. Judijanto, ``Bibliometric Study of IoT in Security and Monitoring Systems,'' \emph{West Science Interdisciplinary Studies}, vol. 4, no. 2, 2026.
+\bibitem{healthcare} S. Limkar \emph{et al.}, ``IoT Security in Smart Healthcare Systems: Risk Analysis and Solutions,'' \emph{Computer Fraud and Security}, 2024.
+\bibitem{tradeoff} A. Abdullah \emph{et al.}, ``Security, Privacy, and Scalability Trade-Offs in Blockchain-Enabled IoT Systems: A Systematic Analytical Review,'' \emph{Applied Sciences}, 2026.
+\end{thebibliography}
+
+\end{document}
